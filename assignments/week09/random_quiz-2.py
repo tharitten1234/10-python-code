@@ -58,8 +58,44 @@ def get_divisibility_hint(number):
 
 def get_range_hint(number, current_min=1, current_max=100):
     # Return narrowed range around the number
-    pass
+    print(f"HINT: The narrowed range arount the number is {range(number-12, number+12)}")
 
 def get_thefirst_digit_hint(number):
     # Retun the first digit of the number
-    pass
+    result = str(number)
+    print(f"HINT: The fisrt digit of the the number is {result[0]}")
+    
+
+print("=== Enhanced GUESSING GAME ===")
+print("Guess my number between 1 and 100!")
+print("You have unlimited attempts.")
+
+random_number = random.randint(1, 100)
+
+attempt = 1
+
+while True:
+
+    guess_number = int(input(f"Attempt {attempt}- Enter your guess: "))
+
+    if random_number == guess_number:
+            print(f"Congratulation! You won in {attempt} attempts")
+            break
+    elif random_number < guess_number:
+            print("Too high! Try again.")
+    elif random_number > guess_number:
+            print("Too low! Try more.")
+
+    if attempt ==3:
+         print(get_parity_hint(random_number))
+
+    elif attempt ==5:
+         print(get_divisibility_hint(random_number))
+
+    elif attempt ==7:
+         get_range_hint(random_number)
+
+    elif attempt ==10:
+         get_thefirst_digit_hint(random_number)
+
+    attempt += 1 #นับจำนวนรอบที่มั่วไป
