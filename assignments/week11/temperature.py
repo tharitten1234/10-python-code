@@ -22,4 +22,34 @@ Highest: 28 C
 Lowest: 19 C
 
 """
+
+#get_temperatures
+def get_temperatures():
+    temp = [23,14,20,35,21,22,27] #[] มันคือเครื่องหมายของ list ถ้าจะกำหนดเลขใส่เลขไปได้เลย [23,14,20,35,21,22,27]
+    return temp
     
+#analyze_temps
+def analyze_temps(temp_list): #temp_list คือ list ของ temp 
+    avg = 0 #avg = sum(temp_list) / (temp_list) 
+    highest = max(temp_list)
+    lowest = min(temp_list)
+    #return avg, highest, lowest
+
+    sum = 0
+    for temp in temp_list:
+        sum = sum + temp
+    avg = sum / len(temp_list)
+    return (avg, highest, lowest)
+
+
+
+#display_analysis
+def display_analysis(avg, high, low):
+    print("Temperature Analysis for the week: ")
+    print("Average: %.2f C" % (avg))
+    print(f"Highest: {high} C")
+    print("Lowest: {low} C")
+
+my_temp = get_temperatures()
+analyzed_temp = analyze_temps(my_temp)
+display_analysis(analyzed_temp[0], analyzed_temp[1], analyzed_temp[2])
